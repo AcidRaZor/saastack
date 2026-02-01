@@ -57,7 +57,7 @@ export const OrganizationEditPage: React.FC = () => {
   const { t: translate } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const { refetch: refetchCurrentUser } = useCurrentUser();
-  const getOrganization = GetOrganizationAction(id!);
+  const getOrganization = GetOrganizationAction();
   const organization = getOrganization.lastSuccessResponse
     ? getOrganization.lastSuccessResponse!
     : ({} as Organization);

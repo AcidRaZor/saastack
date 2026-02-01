@@ -3,19 +3,13 @@ import { renderHook, waitFor } from '@testing-library/react';
 import React from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { ApiResponse } from '../actions/Actions.ts';
-import {
-  getOrganization,
-  GetOrganizationResponse,
-  getProfileForCaller,
-  GetProfileForCallerResponse,
-  UserProfileClassification,
-  UserProfileForCaller
-} from '../api/apiHost1';
+import { getOrganization, GetOrganizationResponse, getProfileForCaller, GetProfileForCallerResponse, UserProfileClassification, UserProfileForCaller } from '../api/apiHost1';
 import { logout } from '../api/websiteHost';
 import { anonymousUser } from '../constants';
 import { IOfflineService } from '../services/IOfflineService.ts';
 import { TestingProviders } from '../testing/TestingProviders.tsx';
 import { useCurrentUser } from './CurrentUserContext.tsx';
+
 
 vi.mock('../api/apiHost1/sdk.gen', () => ({
   getProfileForCaller: vi.fn(),
@@ -111,7 +105,7 @@ describe('CurrentUserContext', () => {
       createdById: 'auserid',
       ownership: 'Shared'
     };
-    mockGetOrganization.mockResolvedValueOnce({
+    mockGetOrganization.mockResolvedValue({
       data: { organization },
       error: undefined,
       request: {} as Request,
